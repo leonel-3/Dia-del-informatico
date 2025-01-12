@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Felicidades!</title>
+    <style>
+        /* Estilos generales */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Contenedor del mensaje */
+        .congrats-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite, colorChange 5s infinite alternate;
+            max-width: 90%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Título */
+        h1 {
+            font-size: 3.5rem;
+            color: #ff6f61;
+            margin: 0;
+            animation: glow 2s infinite alternate, bounce 1.5s infinite;
+        }
+
+        /* Párrafo */
+        p {
+            font-size: 1.5rem;
+            color: #333;
+            margin-top: 10px;
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Botón interactivo */
+        .celebrate-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .celebrate-button:hover {
+            transform: scale(1.1);
+            background: #ff4a3d;
+        }
+
+        /* Animación de confeti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6f61;
+            border-radius: 50%;
+            animation: confetti 5s infinite;
+        }
+
+        /* Animación de fuegos artificiales */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #ff6f61;
+            border-radius: 50%;
+            animation: firework 2s infinite;
+        }
+
+        /* Estrellas flotantes */
+        .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            animation: star 3s infinite;
+        }
+
+        /* Keyframes para animaciones */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
+            }
+            100% {
+                text-shadow: 0 0 20px #ff6f61, 0 0 30px #ff6f61, 0 0 40px #ff6f61;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes firework {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+        @keyframes star {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                background: rgba(255, 255, 255, 0.9);
+            }
+            50% {
+                background: rgba(255, 255, 255, 0.7);
+            }
+            100% {
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Media Query para dispositivos móviles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem; /* Tamaño de fuente más pequeño para móviles */
+            }
+            p {
+                font-size: 1rem; /* Tamaño de fuente más pequeño para móviles */
+            }
+            .congrats-container {
+                padding: 15px 30px; /* Padding más pequeño para móviles */
+            }
+            .celebrate-button {
+                font-size: 1rem; /* Tamaño de fuente más pequeño para móviles */
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mensaje de felicitación -->
+    <div class="congrats-container">
+        <h1>¡Felicidades!</h1>
+        <p>¡Has ganado el primer lugar! 🎉</p>
+        <button class="celebrate-button" onclick="celebrate()">¡Celebrar!</button>
+    </div>
+
+    <!-- Animación de confeti -->
+    <div class="confetti" style="top: 10%; left: 20%;"></div>
+    <div class="confetti" style="top: 5%; left: 50%;"></div>
+    <div class="confetti" style="top: 15%; left: 70%;"></div>
+    <div class="confetti" style="top: 20%; left: 90%;"></div>
+    <div class="confetti" style="top: 25%; left: 30%;"></div>
+    <div class="confetti" style="top: 30%; left: 60%;"></div>
+
+    <!-- Animación de fuegos artificiales -->
+    <div class="firework" style="top: 10%; left: 40%;"></div>
+    <div class="firework" style="top: 20%; left: 80%;"></div>
+    <div class="firework" style="top: 30%; left: 10%;"></div>
+    <div class="firework" style="top: 40%; left: 60%;"></div>
+    <div class="firework" style="top: 50%; left: 20%;"></div>
+    <div class="firework" style="top: 60%; left: 90%;"></div>
+
+    <!-- Estrellas flotantes -->
+    <div class="star" style="top: 5%; left: 10%;"></div>
+    <div class="star" style="top: 15%; left: 70%;"></div>
+    <div class="star" style="top: 25%; left: 30%;"></div>
+    <div class="star" style="top: 35%; left: 90%;"></div>
+    <div class="star" style="top: 45%; left: 50%;"></div>
+    <div class="star" style="top: 55%; left: 20%;"></div>
+
+    <!-- Script para animación adicional al hacer clic en el botón -->
+    <script>
+        function celebrate() {
+            // Crear más confeti al hacer clic
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.top = `${Math.random() * 100}%`;
+                document.body.appendChild(confetti);
+            }
+
+            // Crear más fuegos artificiales al hacer clic
+            for (let i = 0; i < 10; i++) {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = `${Math.random() * 100}%`;
+                firework.style.top = `${Math.random() * 100}%`;
+                document.body.appendChild(firework);
+            }
+
+            // Crear más estrellas al hacer clic
+            for (let i = 0; i < 15; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                document.body.appendChild(star);
+            }
+
+            // Eliminar elementos después de la animación
+            setTimeout(() => {
+                const confettiElements = document.querySelectorAll('.confetti, .firework, .star');
+                confettiElements.forEach(element => element.remove());
+            }, 5000); // Eliminar después de 5 segundos
+        }
+    </script>
+</body>
+</html>
